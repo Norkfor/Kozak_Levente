@@ -10,6 +10,7 @@ namespace Kozak_Levente
   class Program
   {
     static List<Dolgozok> munkasok = new List<Dolgozok>();
+    static string reszlegBeker = "";
     static void Main(string[] args)
     {
       MasodikFeladat();
@@ -33,7 +34,8 @@ namespace Kozak_Levente
 
     private static void OtodikFeladat()
     {
-
+      Console.Write("5. feladat: Kérem egy részleg nevét: ");
+      reszlegBeker = Console.ReadLine();
     }
 
     private static void NegyedikFeladat()
