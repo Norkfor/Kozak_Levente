@@ -9,6 +9,7 @@ namespace Kozak_Levente
 {
   class Program
   {
+    static List<Dolgozok> munkasok = new List<Dolgozok>();
     static void Main(string[] args)
     {
       MasodikFeladat();
@@ -17,6 +18,7 @@ namespace Kozak_Levente
       OtodikFeladat();
       HatodikFeladat();
       HetedikFeladat();
+      Console.ReadKey();
     }
 
     private static void HetedikFeladat()
@@ -46,7 +48,14 @@ namespace Kozak_Levente
 
     private static void MasodikFeladat()
     {
-
+      StreamReader be = new StreamReader("berek2020.txt");
+      be.ReadLine();
+      while (!be.EndOfStream)
+      {
+        string[] a = be.ReadLine().Split(';');
+        munkasok.Add(new Dolgozok(a[0], a[2], a[1], int.Parse(a[3]), int.Parse(a[4])));
+      }
+      be.Close();
     }
   }
 }
