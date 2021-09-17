@@ -29,6 +29,35 @@ namespace Kozak_Levente
 
     private static void HatodikFeladat()
     {
+      Console.WriteLine("6. feladat: A legtöbbet kereső dolgozó a részlegen");
+      int legtobbKereso = 0;
+      int legtobbKerIndex = 0;
+      bool letezik = false;
+      for (int i = 0; i < munkasok.Count; i++)
+      {
+        if (munkasok[i].reszleg.Contains(reszlegBeker))
+        {
+          letezik = true;
+        }
+        if (letezik == true && munkasok[i].reszleg == reszlegBeker && legtobbKereso < munkasok[i].berezes)
+        {
+          legtobbKereso = munkasok[i].berezes;
+          legtobbKerIndex = i;
+        }
+
+      }
+      if (letezik == true)
+      {
+        Console.WriteLine("\tNév: {0}", munkasok[legtobbKerIndex].nev);
+        Console.WriteLine("\tNeme: {0}", munkasok[legtobbKerIndex].neme);
+        Console.WriteLine("\tBelépés: {0}", munkasok[legtobbKerIndex].belepes);
+        Console.WriteLine("\tBér: {0} Forint", munkasok[legtobbKerIndex].berezes);
+      }
+      else
+      {
+        Console.WriteLine("\tA megadott részleg nem létezik a cégnél!");
+      }
+
 
     }
 
@@ -62,7 +91,7 @@ namespace Kozak_Levente
       while (!be.EndOfStream)
       {
         string[] a = be.ReadLine().Split(';');
-        munkasok.Add(new Dolgozok(a[0], a[2], a[1], int.Parse(a[3]), int.Parse(a[4])));
+        munkasok.Add(new Dolgozok(a[0], a[1], a[2], int.Parse(a[3]), int.Parse(a[4])));
       }
       be.Close();
     }
