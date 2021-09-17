@@ -38,12 +38,19 @@ namespace Kozak_Levente
 
     private static void NegyedikFeladat()
     {
-
+      int ossz = 0;
+      double osztas = 0;
+      foreach (var m in munkasok)
+      {
+        ossz = ossz + m.berezes;
+        osztas = (double)ossz / munkasok.Count / 1000;
+      }
+      Console.WriteLine("4. feladat: Bérek átlaga: {0} eFt", Math.Round(osztas, 1));
     }
 
     private static void HarmadikFeladat()
     {
-
+      Console.WriteLine("3. feladat: Dolgozók száma: {0} fő", munkasok.Count());
     }
 
     private static void MasodikFeladat()
