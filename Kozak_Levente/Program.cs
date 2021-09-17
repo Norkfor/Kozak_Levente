@@ -29,13 +29,13 @@ namespace Kozak_Levente
 
     private static void HatodikFeladat()
     {
-      Console.WriteLine("6. feladat: A legtöbbet kereső dolgozó a részlegen");
+
       int legtobbKereso = 0;
       int legtobbKerIndex = 0;
       bool letezik = false;
       for (int i = 0; i < munkasok.Count; i++)
       {
-        if (munkasok[i].reszleg.Contains(reszlegBeker))
+        if (munkasok[i].reszleg == reszlegBeker)
         {
           letezik = true;
         }
@@ -48,6 +48,7 @@ namespace Kozak_Levente
       }
       if (letezik == true)
       {
+        Console.WriteLine("6. feladat: A legtöbbet kereső dolgozó a részlegen");
         Console.WriteLine("\tNév: {0}", munkasok[legtobbKerIndex].nev);
         Console.WriteLine("\tNeme: {0}", munkasok[legtobbKerIndex].neme);
         Console.WriteLine("\tBelépés: {0}", munkasok[legtobbKerIndex].belepes);
@@ -55,7 +56,7 @@ namespace Kozak_Levente
       }
       else
       {
-        Console.WriteLine("\tA megadott részleg nem létezik a cégnél!");
+        Console.WriteLine("6. feladat: A megadott részleg nem létezik a cégnél!");
       }
 
 
